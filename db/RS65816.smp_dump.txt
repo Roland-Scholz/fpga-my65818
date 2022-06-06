@@ -1,0 +1,206 @@
+
+State Machine - |RS65816|cpuState
+Name cpuState.CPUIO2 cpuState.CPUIO1 cpuState.CPUIO cpuState.CPUDECODE cpuState.CPUWORK cpuState.CPUCLOCK 
+cpuState.CPUCLOCK 0 0 0 0 0 0 
+cpuState.CPUWORK 0 0 0 0 1 1 
+cpuState.CPUDECODE 0 0 0 1 0 1 
+cpuState.CPUIO 0 0 1 0 0 1 
+cpuState.CPUIO1 0 1 0 0 0 1 
+cpuState.CPUIO2 1 0 0 0 0 1 
+
+State Machine - |RS65816|ramState
+Name ramState.REFRESHACC ramState.DMAACCESS ramState.RAMWAIT ramState.RAMACCESS ramState.RAMIDLE 
+ramState.RAMIDLE 0 0 0 0 0 
+ramState.RAMACCESS 0 0 0 1 1 
+ramState.RAMWAIT 0 0 1 0 1 
+ramState.DMAACCESS 0 1 0 0 1 
+ramState.REFRESHACC 1 0 0 0 1 
+
+State Machine - |RS65816|uart:mouse|rx_fsm
+Name rx_fsm.stop2 rx_fsm.stop1 rx_fsm.parity rx_fsm.data rx_fsm.idle 
+rx_fsm.idle 0 0 0 0 0 
+rx_fsm.data 0 0 0 1 1 
+rx_fsm.parity 0 0 1 0 1 
+rx_fsm.stop1 0 1 0 0 1 
+rx_fsm.stop2 1 0 0 0 1 
+
+State Machine - |RS65816|uart:mouse|tx_fsm
+Name tx_fsm.stop2 tx_fsm.stop1 tx_fsm.parity tx_fsm.data tx_fsm.idle 
+tx_fsm.idle 0 0 0 0 0 
+tx_fsm.data 0 0 0 1 1 
+tx_fsm.parity 0 0 1 0 1 
+tx_fsm.stop1 0 1 0 0 1 
+tx_fsm.stop2 1 0 0 0 1 
+
+State Machine - |RS65816|uart:uart|rx_fsm
+Name rx_fsm.stop2 rx_fsm.stop1 rx_fsm.parity rx_fsm.data rx_fsm.idle 
+rx_fsm.idle 0 0 0 0 0 
+rx_fsm.data 0 0 0 1 1 
+rx_fsm.parity 0 0 1 0 1 
+rx_fsm.stop1 0 1 0 0 1 
+rx_fsm.stop2 1 0 0 0 1 
+
+State Machine - |RS65816|uart:uart|tx_fsm
+Name tx_fsm.stop2 tx_fsm.stop1 tx_fsm.parity tx_fsm.data tx_fsm.idle 
+tx_fsm.idle 0 0 0 0 0 
+tx_fsm.data 0 0 0 1 1 
+tx_fsm.parity 0 0 1 0 1 
+tx_fsm.stop1 0 1 0 0 1 
+tx_fsm.stop2 1 0 0 0 1 
+
+State Machine - |RS65816|sdram_simple:u5|state_r
+Name state_r.ST_PRECHARGE state_r.ST_RAS2 state_r.ST_RAS1 state_r.ST_RW state_r.ST_RCD state_r.ST_ACTIVATE state_r.ST_REFRESH state_r.ST_IDLE state_r.ST_INIT_REFRESH2 state_r.ST_INIT_MODE state_r.ST_INIT_REFRESH1 state_r.ST_INIT_PRECHARGE state_r.ST_INIT_WAIT 
+state_r.ST_INIT_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state_r.ST_INIT_PRECHARGE 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state_r.ST_INIT_REFRESH1 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state_r.ST_INIT_MODE 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state_r.ST_INIT_REFRESH2 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state_r.ST_IDLE 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state_r.ST_REFRESH 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state_r.ST_ACTIVATE 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state_r.ST_RCD 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state_r.ST_RW 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state_r.ST_RAS1 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state_r.ST_RAS2 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state_r.ST_PRECHARGE 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |RS65816|Display:u4|dmaState
+Name dmaState.REFRESHWAIT dmaState.DMAWAIT dmaState.DMACLOCK 
+dmaState.DMACLOCK 0 0 0 
+dmaState.DMAWAIT 0 1 1 
+dmaState.REFRESHWAIT 1 0 1 
+
+State Machine - |RS65816|RS65C816:u0|afterAlu
+Name afterAlu.doALUdflagHi afterAlu.fetchRelHiA afterAlu.dpageXY afterAlu.decodeOpcodeLen2 afterAlu.restoreFlags afterAlu.readPCEnd afterAlu.readPCHi afterAlu.readPCLo afterAlu.pushFlags afterAlu.startUp afterAlu.fetchSrcBank afterAlu.writeByte afterAlu.readByte afterAlu.fetchImmBank afterAlu.fetchImmHi afterAlu.dead afterAlu.doFlags afterAlu.doALU afterAlu.storeHi afterAlu.storeLo afterAlu.popFlags afterAlu.popBank afterAlu.popHi afterAlu.popLo afterAlu.pushEnd afterAlu.pushBank afterAlu.pushHi afterAlu.pushLo afterAlu.doALUdflag afterAlu.fetchIndirectHi afterAlu.readIndirectBank afterAlu.readIndirectHi afterAlu.readIndirectLo afterAlu.rwAbsDataHi afterAlu.rwAbsDataLo afterAlu.fetchRelHi afterAlu.fetchAbsBank afterAlu.fetchAbsHi afterAlu.decodeOpcodeDummyB afterAlu.decodeOpcodeDummyA afterAlu.decodeOpcode afterAlu.fetchOpcode 
+afterAlu.fetchOpcode 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+afterAlu.decodeOpcode 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+afterAlu.decodeOpcodeDummyA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+afterAlu.decodeOpcodeDummyB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+afterAlu.fetchAbsHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+afterAlu.fetchAbsBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+afterAlu.fetchRelHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+afterAlu.rwAbsDataLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+afterAlu.rwAbsDataHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+afterAlu.readIndirectLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+afterAlu.readIndirectHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+afterAlu.readIndirectBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.fetchIndirectHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.doALUdflag 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.pushLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.pushHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.pushBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.pushEnd 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.popLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.popHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.popBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.popFlags 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.storeLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.storeHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.doALU 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.doFlags 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.dead 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.fetchImmHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.fetchImmBank 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.readByte 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.writeByte 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.fetchSrcBank 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.startUp 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.pushFlags 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.readPCLo 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.readPCHi 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.readPCEnd 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.restoreFlags 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.decodeOpcodeLen2 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.dpageXY 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.fetchRelHiA 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterAlu.doALUdflagHi 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |RS65816|RS65C816:u0|afterPushLo
+Name afterPushLo.doALUdflagHi afterPushLo.fetchRelHiA afterPushLo.dpageXY afterPushLo.decodeOpcodeLen2 afterPushLo.restoreFlags afterPushLo.readPCEnd afterPushLo.readPCHi afterPushLo.readPCLo afterPushLo.pushFlags afterPushLo.startUp afterPushLo.fetchSrcBank afterPushLo.writeByte afterPushLo.readByte afterPushLo.fetchImmBank afterPushLo.fetchImmHi afterPushLo.dead afterPushLo.doFlags afterPushLo.doALU afterPushLo.storeHi afterPushLo.storeLo afterPushLo.popFlags afterPushLo.popBank afterPushLo.popHi afterPushLo.popLo afterPushLo.pushEnd afterPushLo.pushBank afterPushLo.pushHi afterPushLo.pushLo afterPushLo.doALUdflag afterPushLo.fetchIndirectHi afterPushLo.readIndirectBank afterPushLo.readIndirectHi afterPushLo.readIndirectLo afterPushLo.rwAbsDataHi afterPushLo.rwAbsDataLo afterPushLo.fetchRelHi afterPushLo.fetchAbsBank afterPushLo.fetchAbsHi afterPushLo.decodeOpcodeDummyB afterPushLo.decodeOpcodeDummyA afterPushLo.decodeOpcode afterPushLo.fetchOpcode 
+afterPushLo.fetchOpcode 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+afterPushLo.decodeOpcode 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+afterPushLo.decodeOpcodeDummyA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+afterPushLo.decodeOpcodeDummyB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+afterPushLo.fetchAbsHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+afterPushLo.fetchAbsBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+afterPushLo.fetchRelHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+afterPushLo.rwAbsDataLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+afterPushLo.rwAbsDataHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+afterPushLo.readIndirectLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+afterPushLo.readIndirectHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.readIndirectBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.fetchIndirectHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.doALUdflag 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.pushLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.pushHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.pushBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.pushEnd 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.popLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.popHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.popBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.popFlags 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.storeLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.storeHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.doALU 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.doFlags 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.dead 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.fetchImmHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.fetchImmBank 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.readByte 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.writeByte 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.fetchSrcBank 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.startUp 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.pushFlags 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.readPCLo 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.readPCHi 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.readPCEnd 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.restoreFlags 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.decodeOpcodeLen2 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.dpageXY 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.fetchRelHiA 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+afterPushLo.doALUdflagHi 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |RS65816|RS65C816:u0|procState
+Name procState.doALUdflagHi procState.fetchRelHiA procState.dpageXY procState.decodeOpcodeLen2 procState.restoreFlags procState.readPCEnd procState.readPCHi procState.readPCLo procState.pushFlags procState.startUp procState.fetchSrcBank procState.writeByte procState.readByte procState.fetchImmBank procState.fetchImmHi procState.dead procState.doFlags procState.doALU procState.storeHi procState.storeLo procState.popFlags procState.popBank procState.popHi procState.popLo procState.pushEnd procState.pushBank procState.pushHi procState.pushLo procState.doALUdflag procState.fetchIndirectHi procState.readIndirectBank procState.readIndirectHi procState.readIndirectLo procState.rwAbsDataHi procState.rwAbsDataLo procState.fetchRelHi procState.fetchAbsBank procState.fetchAbsHi procState.decodeOpcodeDummyB procState.fetchOpcode procState.decodeOpcode procState.decodeOpcodeDummyA 
+procState.decodeOpcodeDummyA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+procState.decodeOpcode 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+procState.fetchOpcode 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+procState.decodeOpcodeDummyB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+procState.fetchAbsHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+procState.fetchAbsBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+procState.fetchRelHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+procState.rwAbsDataLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+procState.rwAbsDataHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+procState.readIndirectLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+procState.readIndirectHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+procState.readIndirectBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+procState.fetchIndirectHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.doALUdflag 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.pushLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.pushHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.pushBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.pushEnd 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.popLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.popHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.popBank 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.popFlags 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.storeLo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.storeHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.doALU 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.doFlags 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.dead 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.fetchImmHi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.fetchImmBank 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.readByte 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.writeByte 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.fetchSrcBank 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.startUp 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.pushFlags 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.readPCLo 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.readPCHi 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.readPCEnd 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.restoreFlags 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.decodeOpcodeLen2 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.dpageXY 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.fetchRelHiA 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+procState.doALUdflagHi 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

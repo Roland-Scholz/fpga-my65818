@@ -1,0 +1,317 @@
+DEPTH = 256;                  -- The size of memory in words
+WIDTH = 26;                   -- The size of data in bits
+ADDRESS_RADIX = HEX;          -- The radix for address values
+DATA_RADIX = BIN;             -- The radix for data values
+CONTENT                       -- start of (address : data pairs)
+BEGIN
+--        imp 00000
+--   impflags 00001
+--        imm 00010
+--         sr 00011
+--         dp 00100
+--        dpx 00101
+--        dpy 00110
+--        idp 00111
+--        idx 01000
+--        idy 01001
+--        idl 01010
+--       idly 01011
+--        isy 01100
+--        abs 01101
+--        abx 01110
+--        aby 01111
+--        abl 10000
+--        alx 10001
+--        ind 10010
+--        iax 10011
+--        ial 10100
+--        rel 10101
+--       rell 10110
+--         bm 10111
+--        iml 11000
+--        brk 11001
+--        cop 11010
+-- imp 00000
+08 : 00000011101000111100001100;   --   PHP 08 op_A:OP_F  op_B:OP_V  target:OP_F     operator:OP_PUS  read:0  write:1  pC:1  cV:0  gC:0
+0A : 00000000100010001010110101;   --   ASL 0A op_A:OP_A  op_B:OP_A  target:OP_A     operator:OP_ROL  read:1  write:0  pC:1  cV:0  gC:1
+0B : 00000011001000110100001100;   --   PHD 0B op_A:OP_D  op_B:OP_V  target:OP_D     operator:OP_PUS  read:0  write:1  pC:1  cV:0  gC:0
+1A : 00000000100000001000010110;   --   INC 1A op_A:OP_A  op_B:OP_0  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:1  gC:0
+1B : 00000000100000101000010100;   --   TCS 1B op_A:OP_A  op_B:OP_0  target:OP_S     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+28 : 00000000001000111100110100;   --   PLP 28 op_A:OP_0  op_B:OP_V  target:OP_F     operator:OP_POP  read:1  write:0  pC:1  cV:0  gC:0
+2A : 00000000100010001010110001;   --   ROL 2A op_A:OP_A  op_B:OP_A  target:OP_A     operator:OP_ROL  read:1  write:0  pC:0  cV:0  gC:1
+2B : 00000000001000110100110100;   --   PLD 2B op_A:OP_0  op_B:OP_V  target:OP_D     operator:OP_POP  read:1  write:0  pC:1  cV:0  gC:0
+3A : 00000000100000001000110100;   --   DEC 3A op_A:OP_A  op_B:OP_0  target:OP_A     operator:OP_SBC  read:1  write:0  pC:1  cV:0  gC:0
+3B : 00000010100000001000010100;   --   TSC 3B op_A:OP_S  op_B:OP_0  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+40 : 00000000001001011100100100;   --   RTI 40 op_A:OP_0  op_B:OP_V  target:OP_PC24  operator:OP_POP  read:0  write:0  pC:1  cV:0  gC:0
+48 : 00000000101000001100001100;   --   PHA 48 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_PUS  read:0  write:1  pC:1  cV:0  gC:0
+4A : 00000000100010001011010101;   --   LSR 4A op_A:OP_A  op_B:OP_A  target:OP_A     operator:OP_ROR  read:1  write:0  pC:1  cV:0  gC:1
+4B : 00000100001001000100001100;   --   PHK 4B op_A:OP_K  op_B:OP_V  target:OP_K     operator:OP_PUS  read:0  write:1  pC:1  cV:0  gC:0
+5A : 00000001101000011100001100;   --   PHY 5A op_A:OP_Y  op_B:OP_V  target:OP_Y     operator:OP_PUS  read:0  write:1  pC:1  cV:0  gC:0
+5B : 00000000100000110000010100;   --   TCD 5B op_A:OP_A  op_B:OP_0  target:OP_D     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+60 : 00000000001001010100110110;   --   RTS 60 op_A:OP_0  op_B:OP_V  target:OP_PC16  operator:OP_POP  read:1  write:0  pC:1  cV:1  gC:0
+68 : 00000000001000001100110100;   --   PLA 68 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_POP  read:1  write:0  pC:1  cV:0  gC:0
+6A : 00000000100010001011010001;   --   ROR 6A op_A:OP_A  op_B:OP_A  target:OP_A     operator:OP_ROR  read:1  write:0  pC:0  cV:0  gC:1
+6B : 00000000001001011100110110;   --   RTL 6B op_A:OP_0  op_B:OP_V  target:OP_PC24  operator:OP_POP  read:1  write:0  pC:1  cV:1  gC:0
+7A : 00000000001000011100110100;   --   PLY 7A op_A:OP_0  op_B:OP_V  target:OP_Y     operator:OP_POP  read:1  write:0  pC:1  cV:0  gC:0
+7B : 00000011000000001000010100;   --   TDC 7B op_A:OP_D  op_B:OP_0  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+88 : 00000001100000011000110100;   --   DEY 88 op_A:OP_Y  op_B:OP_0  target:OP_Y     operator:OP_SBC  read:1  write:0  pC:1  cV:0  gC:0
+8A : 00000001000000001000010100;   --   TXA 8A op_A:OP_X  op_B:OP_0  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+8B : 00000100101001001100001100;   --   PHB 8B op_A:OP_B  op_B:OP_V  target:OP_B     operator:OP_PUS  read:0  write:1  pC:1  cV:0  gC:0
+98 : 00000001100000001000010100;   --   TYA 98 op_A:OP_Y  op_B:OP_0  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+9A : 00000001000000101000010100;   --   TXS 9A op_A:OP_X  op_B:OP_0  target:OP_S     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+9B : 00000001000000011000010100;   --   TXY 9B op_A:OP_X  op_B:OP_0  target:OP_Y     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+A8 : 00000000100000011000010100;   --   TAY A8 op_A:OP_A  op_B:OP_0  target:OP_Y     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+AA : 00000000100000010000010100;   --   TAX AA op_A:OP_A  op_B:OP_0  target:OP_X     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+AB : 00000000001001001100110100;   --   PLB AB op_A:OP_0  op_B:OP_V  target:OP_B     operator:OP_POP  read:1  write:0  pC:1  cV:0  gC:0
+BA : 00000010100000010000010100;   --   TSX BA op_A:OP_S  op_B:OP_0  target:OP_X     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+BB : 00000001100000010000010100;   --   TYX BB op_A:OP_Y  op_B:OP_0  target:OP_X     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+C8 : 00000001100000011000010110;   --   INY C8 op_A:OP_Y  op_B:OP_0  target:OP_Y     operator:OP_ADC  read:1  write:0  pC:1  cV:1  gC:0
+CA : 00000001000000010000110100;   --   DEX CA op_A:OP_X  op_B:OP_0  target:OP_X     operator:OP_SBC  read:1  write:0  pC:1  cV:0  gC:0
+CB : 00000011100000111000010100;   --   WAI CB op_A:OP_F  op_B:OP_0  target:OP_F     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+DA : 00000001001000010100001100;   --   PHX DA op_A:OP_X  op_B:OP_V  target:OP_X     operator:OP_PUS  read:0  write:1  pC:1  cV:0  gC:0
+DB : 00000011100000111000010100;   --   STP DB op_A:OP_F  op_B:OP_0  target:OP_F     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+E8 : 00000001000000010000010110;   --   INX E8 op_A:OP_X  op_B:OP_0  target:OP_X     operator:OP_ADC  read:1  write:0  pC:1  cV:1  gC:0
+EA : 00000011101000111000010100;   --   NOP EA op_A:OP_F  op_B:OP_V  target:OP_F     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+EB : 00000000101000001101100100;   --   XBA EB op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_XBA  read:0  write:0  pC:1  cV:0  gC:0
+FA : 00000000001000010100110100;   --   PLX FA op_A:OP_0  op_B:OP_V  target:OP_X     operator:OP_POP  read:1  write:0  pC:1  cV:0  gC:0
+FB : 00000011100000111000010100;   --   XCE FB op_A:OP_F  op_B:OP_0  target:OP_F     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- impflags 00001
+18 : 00001000101000001000010100;   --   CLC 18 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+38 : 00001000101000001000010100;   --   SEC 38 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+58 : 00001000001000000000010100;   --   CLI 58 op_A:OP_0  op_B:OP_V  target:OP_0     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+78 : 00001000001000000000010100;   --   SEI 78 op_A:OP_0  op_B:OP_V  target:OP_0     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+B8 : 00001000001000000000010100;   --   CLV B8 op_A:OP_0  op_B:OP_V  target:OP_0     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+D8 : 00001011001000110000010100;   --   CLD D8 op_A:OP_D  op_B:OP_V  target:OP_D     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+F8 : 00001011001000110000010100;   --   SED F8 op_A:OP_D  op_B:OP_V  target:OP_D     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- imm 00010
+09 : 00010000101000001001110100;   --   ORA 09 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+20 : 00010000101001010000011100;   --   JSR 20 op_A:OP_A  op_B:OP_V  target:OP_PC16  operator:OP_ADC  read:1  write:1  pC:1  cV:0  gC:0
+29 : 00010000101000001001010100;   --   AND 29 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+42 : 00010011100000111000010100;   --   WDM 42 op_A:OP_F  op_B:OP_0  target:OP_F     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+49 : 00010000101000001010010100;   --   EOR 49 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+4C : 00010000001001010000010100;   --   JMP 4C op_A:OP_0  op_B:OP_V  target:OP_PC16  operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+69 : 00010000101000001000010001;   --   ADC 69 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+89 : 00010000101000000110110100;   --   BIT 89 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_BIT  read:1  write:0  pC:1  cV:0  gC:0
+A0 : 00010000001000011000010100;   --   LDY A0 op_A:OP_0  op_B:OP_V  target:OP_Y     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+A2 : 00010000001000010000010100;   --   LDX A2 op_A:OP_0  op_B:OP_V  target:OP_X     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+A9 : 00010000001000001000010100;   --   LDA A9 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+C0 : 00010001101000000000110111;   --   CPY C0 op_A:OP_Y  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+C2 : 00010011101000111011110100;   --   REP C2 op_A:OP_F  op_B:OP_V  target:OP_F     operator:OP_REP  read:1  write:0  pC:1  cV:0  gC:0
+C9 : 00010000101000000000110111;   --   CMP C9 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+E0 : 00010001001000000000110111;   --   CPX E0 op_A:OP_X  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+E2 : 00010011101000111001110100;   --   SEP E2 op_A:OP_F  op_B:OP_V  target:OP_F     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+E9 : 00010000101000001000110001;   --   SBC E9 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+F4 : 00010000101000101100010100;   --   PEA F4 op_A:OP_A  op_B:OP_V  target:OP_S     operator:OP_PUS  read:1  write:0  pC:1  cV:0  gC:0
+-- sr 00011
+03 : 00011000101000001001110100;   --   ORA 03 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+23 : 00011000101000001001010100;   --   AND 23 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+43 : 00011000101000001010010100;   --   EOR 43 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+63 : 00011000101000001000010001;   --   ADC 63 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+83 : 00011000101000001000001100;   --   STA 83 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+A3 : 00011000001000001000010100;   --   LDA A3 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+C3 : 00011000101000000000110111;   --   CMP C3 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+E3 : 00011000101000001000110001;   --   SBC E3 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- dp 00100
+04 : 00100010000010100110011100;   --   TSB 04 op_A:OP_V  op_B:OP_A  target:OP_V     operator:OP_SEP  read:1  write:1  pC:1  cV:0  gC:0
+05 : 00100000101000001001110100;   --   ORA 05 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+06 : 00100010000000100010111101;   --   ASL 06 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROL  read:1  write:1  pC:1  cV:0  gC:1
+14 : 00100010000010100011111100;   --   TRB 14 op_A:OP_V  op_B:OP_A  target:OP_V     operator:OP_REP  read:1  write:1  pC:1  cV:0  gC:0
+24 : 00100000101000000110110100;   --   BIT 24 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_BIT  read:1  write:0  pC:1  cV:0  gC:0
+25 : 00100000101000001001010100;   --   AND 25 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+26 : 00100010000000100010111001;   --   ROL 26 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROL  read:1  write:1  pC:0  cV:0  gC:1
+45 : 00100000101000001010010100;   --   EOR 45 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+46 : 00100010000000100011011101;   --   LSR 46 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROR  read:1  write:1  pC:1  cV:0  gC:1
+64 : 00100000001000001000001100;   --   STZ 64 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+65 : 00100000101000001000010001;   --   ADC 65 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+66 : 00100010000000100011011001;   --   ROR 66 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROR  read:1  write:1  pC:0  cV:0  gC:1
+84 : 00100001101000011000001100;   --   STY 84 op_A:OP_Y  op_B:OP_V  target:OP_Y     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+85 : 00100000101000001000001100;   --   STA 85 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+86 : 00100001001000010000001100;   --   STX 86 op_A:OP_X  op_B:OP_V  target:OP_X     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+A4 : 00100000001000011000010100;   --   LDY A4 op_A:OP_0  op_B:OP_V  target:OP_Y     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+A5 : 00100000001000001000010100;   --   LDA A5 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+A6 : 00100000001000010000010100;   --   LDX A6 op_A:OP_0  op_B:OP_V  target:OP_X     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+C4 : 00100001101000000000110111;   --   CPY C4 op_A:OP_Y  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+C5 : 00100000101000000000110111;   --   CMP C5 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+C6 : 00100010000000100000111100;   --   DEC C6 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_SBC  read:1  write:1  pC:1  cV:0  gC:0
+D4 : 00100000001000101100010100;   --   PEI D4 op_A:OP_0  op_B:OP_V  target:OP_S     operator:OP_PUS  read:1  write:0  pC:1  cV:0  gC:0
+E4 : 00100001001000000000110111;   --   CPX E4 op_A:OP_X  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+E5 : 00100000101000001000110001;   --   SBC E5 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+E6 : 00100010000000100000011110;   --   INC E6 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ADC  read:1  write:1  pC:1  cV:1  gC:0
+-- dpx 00101
+15 : 00101000101000001001110100;   --   ORA 15 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+16 : 00101010000000100010111101;   --   ASL 16 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROL  read:1  write:1  pC:1  cV:0  gC:1
+34 : 00101000101000000110110100;   --   BIT 34 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_BIT  read:1  write:0  pC:1  cV:0  gC:0
+35 : 00101000101000001001010100;   --   AND 35 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+36 : 00101010000000100010111001;   --   ROL 36 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROL  read:1  write:1  pC:0  cV:0  gC:1
+55 : 00101000101000001010010100;   --   EOR 55 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+56 : 00101010000000100011011101;   --   LSR 56 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROR  read:1  write:1  pC:1  cV:0  gC:1
+74 : 00101000001000001000001100;   --   STZ 74 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+75 : 00101000101000001000010001;   --   ADC 75 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+76 : 00101010000000100011011001;   --   ROR 76 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROR  read:1  write:1  pC:0  cV:0  gC:1
+94 : 00101001101000011000001100;   --   STY 94 op_A:OP_Y  op_B:OP_V  target:OP_Y     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+95 : 00101000101000001000001100;   --   STA 95 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+B4 : 00101000001000011000010100;   --   LDY B4 op_A:OP_0  op_B:OP_V  target:OP_Y     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+B5 : 00101000001000001000010100;   --   LDA B5 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+D5 : 00101000101000000000110111;   --   CMP D5 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+D6 : 00101010000000100000111100;   --   DEC D6 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_SBC  read:1  write:1  pC:1  cV:0  gC:0
+F5 : 00101000101000001000110001;   --   SBC F5 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+F6 : 00101010000000100000011110;   --   INC F6 op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ADC  read:1  write:1  pC:1  cV:1  gC:0
+-- dpy 00110
+96 : 00110001001000010000001100;   --   STX 96 op_A:OP_X  op_B:OP_V  target:OP_X     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+B6 : 00110000001000010000010100;   --   LDX B6 op_A:OP_0  op_B:OP_V  target:OP_X     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- idp 00111
+12 : 00111000101000001001110100;   --   ORA 12 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+32 : 00111000101000001001010100;   --   AND 32 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+52 : 00111000101000001010010100;   --   EOR 52 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+72 : 00111000101000001000010001;   --   ADC 72 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+92 : 00111000101000001000001100;   --   STA 92 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+B2 : 00111000001000001000010100;   --   LDA B2 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+D2 : 00111000101000000000110111;   --   CMP D2 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+F2 : 00111000101000001000110001;   --   SBC F2 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- idx 01000
+01 : 01000000101000001001110100;   --   ORA 01 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+21 : 01000000101000001001010100;   --   AND 21 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+41 : 01000000101000001010010100;   --   EOR 41 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+61 : 01000000101000001000010001;   --   ADC 61 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+81 : 01000000101000001000001100;   --   STA 81 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+A1 : 01000000001000001000010100;   --   LDA A1 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+C1 : 01000000101000000000110111;   --   CMP C1 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+E1 : 01000000101000001000110001;   --   SBC E1 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- idy 01001
+11 : 01001000101000001001110100;   --   ORA 11 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+31 : 01001000101000001001010100;   --   AND 31 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+51 : 01001000101000001010010100;   --   EOR 51 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+71 : 01001000101000001000010001;   --   ADC 71 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+91 : 01001000101000001000001100;   --   STA 91 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+B1 : 01001000001000001000010100;   --   LDA B1 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+D1 : 01001000101000000000110111;   --   CMP D1 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+F1 : 01001000101000001000110001;   --   SBC F1 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- idl 01010
+07 : 01010000101000001001110100;   --   ORA 07 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+27 : 01010000101000001001010100;   --   AND 27 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+47 : 01010000101000001010010100;   --   EOR 47 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+67 : 01010000101000001000010001;   --   ADC 67 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+87 : 01010000101000001000001100;   --   STA 87 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+A7 : 01010000001000001000010100;   --   LDA A7 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+C7 : 01010000101000000000110111;   --   CMP C7 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+E7 : 01010000101000001000110001;   --   SBC E7 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- idly 01011
+17 : 01011000101000001001110100;   --   ORA 17 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+37 : 01011000101000001001010100;   --   AND 37 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+57 : 01011000101000001010010100;   --   EOR 57 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+77 : 01011000101000001000010001;   --   ADC 77 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+97 : 01011000101000001000001100;   --   STA 97 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+B7 : 01011000001000001000010100;   --   LDA B7 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+D7 : 01011000101000000000110111;   --   CMP D7 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+F7 : 01011000101000001000110001;   --   SBC F7 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- isy 01100
+13 : 01100000101000001001110100;   --   ORA 13 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+33 : 01100000101000001001010100;   --   AND 33 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+53 : 01100000101000001010010100;   --   EOR 53 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+73 : 01100000101000001000010001;   --   ADC 73 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+93 : 01100000101000001000001100;   --   STA 93 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+B3 : 01100000001000001000010100;   --   LDA B3 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+D3 : 01100000101000000000110111;   --   CMP D3 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+F3 : 01100000101000001000110001;   --   SBC F3 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- abs 01101
+0C : 01101010000010100110011100;   --   TSB 0C op_A:OP_V  op_B:OP_A  target:OP_V     operator:OP_SEP  read:1  write:1  pC:1  cV:0  gC:0
+0D : 01101000101000001001110100;   --   ORA 0D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+0E : 01101010000000100010111101;   --   ASL 0E op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROL  read:1  write:1  pC:1  cV:0  gC:1
+1C : 01101010000010100011111100;   --   TRB 1C op_A:OP_V  op_B:OP_A  target:OP_V     operator:OP_REP  read:1  write:1  pC:1  cV:0  gC:0
+2C : 01101000101000000110110100;   --   BIT 2C op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_BIT  read:1  write:0  pC:1  cV:0  gC:0
+2D : 01101000101000001001010100;   --   AND 2D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+2E : 01101010000000100010111001;   --   ROL 2E op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROL  read:1  write:1  pC:0  cV:0  gC:1
+4D : 01101000101000001010010100;   --   EOR 4D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+4E : 01101010000000100011011101;   --   LSR 4E op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROR  read:1  write:1  pC:1  cV:0  gC:1
+6D : 01101000101000001000010001;   --   ADC 6D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+6E : 01101010000000100011011001;   --   ROR 6E op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROR  read:1  write:1  pC:0  cV:0  gC:1
+8C : 01101001101000011000001100;   --   STY 8C op_A:OP_Y  op_B:OP_V  target:OP_Y     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+8D : 01101000101000001000001100;   --   STA 8D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+8E : 01101001001000010000001100;   --   STX 8E op_A:OP_X  op_B:OP_V  target:OP_X     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+9C : 01101000001000001000001100;   --   STZ 9C op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+AC : 01101000001000011000010100;   --   LDY AC op_A:OP_0  op_B:OP_V  target:OP_Y     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+AD : 01101000001000001000010100;   --   LDA AD op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+AE : 01101000001000010000010100;   --   LDX AE op_A:OP_0  op_B:OP_V  target:OP_X     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+CC : 01101001101000000000110111;   --   CPY CC op_A:OP_Y  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+CD : 01101000101000000000110111;   --   CMP CD op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+CE : 01101010000000100000111100;   --   DEC CE op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_SBC  read:1  write:1  pC:1  cV:0  gC:0
+EC : 01101001001000000000110111;   --   CPX EC op_A:OP_X  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+ED : 01101000101000001000110001;   --   SBC ED op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+EE : 01101010000000100000011110;   --   INC EE op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ADC  read:1  write:1  pC:1  cV:1  gC:0
+-- abx 01110
+1D : 01110000101000001001110100;   --   ORA 1D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+1E : 01110010000000100010111101;   --   ASL 1E op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROL  read:1  write:1  pC:1  cV:0  gC:1
+3C : 01110000101000000110110100;   --   BIT 3C op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_BIT  read:1  write:0  pC:1  cV:0  gC:0
+3D : 01110000101000001001010100;   --   AND 3D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+3E : 01110010000000100010111001;   --   ROL 3E op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROL  read:1  write:1  pC:0  cV:0  gC:1
+5D : 01110000101000001010010100;   --   EOR 5D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+5E : 01110010000000100011011101;   --   LSR 5E op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROR  read:1  write:1  pC:1  cV:0  gC:1
+7D : 01110000101000001000010001;   --   ADC 7D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+7E : 01110010000000100011011001;   --   ROR 7E op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ROR  read:1  write:1  pC:0  cV:0  gC:1
+9D : 01110000101000001000001100;   --   STA 9D op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+9E : 01110000001000001000001100;   --   STZ 9E op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+BC : 01110000001000011000010100;   --   LDY BC op_A:OP_0  op_B:OP_V  target:OP_Y     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+BD : 01110000001000001000010100;   --   LDA BD op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+DD : 01110000101000000000110111;   --   CMP DD op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+DE : 01110010000000100000111100;   --   DEC DE op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_SBC  read:1  write:1  pC:1  cV:0  gC:0
+FD : 01110000101000001000110001;   --   SBC FD op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+FE : 01110010000000100000011110;   --   INC FE op_A:OP_V  op_B:OP_0  target:OP_V     operator:OP_ADC  read:1  write:1  pC:1  cV:1  gC:0
+-- aby 01111
+19 : 01111000101000001001110100;   --   ORA 19 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+39 : 01111000101000001001010100;   --   AND 39 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+59 : 01111000101000001010010100;   --   EOR 59 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+79 : 01111000101000001000010001;   --   ADC 79 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+99 : 01111000101000001000001100;   --   STA 99 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+B9 : 01111000001000001000010100;   --   LDA B9 op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+BE : 01111000001000010000010100;   --   LDX BE op_A:OP_0  op_B:OP_V  target:OP_X     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+D9 : 01111000101000000000110111;   --   CMP D9 op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+F9 : 01111000101000001000110001;   --   SBC F9 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- abl 10000
+0F : 10000000101000001001110100;   --   ORA 0F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+2F : 10000000101000001001010100;   --   AND 2F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+4F : 10000000101000001010010100;   --   EOR 4F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+6F : 10000000101000001000010001;   --   ADC 6F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+8F : 10000000101000001000001100;   --   STA 8F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+AF : 10000000001000001000010100;   --   LDA AF op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+CF : 10000000101000000000110111;   --   CMP CF op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+EF : 10000000101000001000110001;   --   SBC EF op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- alx 10001
+1F : 10001000101000001001110100;   --   ORA 1F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ORA  read:1  write:0  pC:1  cV:0  gC:0
+3F : 10001000101000001001010100;   --   AND 3F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_AND  read:1  write:0  pC:1  cV:0  gC:0
+5F : 10001000101000001010010100;   --   EOR 5F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_EOR  read:1  write:0  pC:1  cV:0  gC:0
+7F : 10001000101000001000010001;   --   ADC 7F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:0  cV:0  gC:1
+9F : 10001000101000001000001100;   --   STA 9F op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:0  write:1  pC:1  cV:0  gC:0
+BF : 10001000001000001000010100;   --   LDA BF op_A:OP_0  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+DF : 10001000101000000000110111;   --   CMP DF op_A:OP_A  op_B:OP_V  target:OP_0     operator:OP_SBC  read:1  write:0  pC:1  cV:1  gC:1
+FF : 10001000101000001000110001;   --   SBC FF op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_SBC  read:1  write:0  pC:0  cV:0  gC:1
+-- ind 10010
+6C : 10010000001001010000010100;   --   JMP 6C op_A:OP_0  op_B:OP_V  target:OP_PC16  operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- iax 10011
+7C : 10011000001001010000010100;   --   JMP 7C op_A:OP_0  op_B:OP_V  target:OP_PC16  operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+FC : 10011000101001010000011100;   --   JSR FC op_A:OP_A  op_B:OP_V  target:OP_PC16  operator:OP_ADC  read:1  write:1  pC:1  cV:0  gC:0
+-- ial 10100
+DC : 10100000001001011000010100;   --   JML DC op_A:OP_0  op_B:OP_V  target:OP_PC24  operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- rel 10101
+10 : 10101000101000001000010100;   --   BPL 10 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+30 : 10101000001000000000010100;   --   BMI 30 op_A:OP_0  op_B:OP_V  target:OP_0     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+50 : 10101000101000001000010100;   --   BVC 50 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+70 : 10101010101000101000010100;   --   BVS 70 op_A:OP_S  op_B:OP_V  target:OP_S     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+80 : 10101011100000111000010100;   --   BRA 80 op_A:OP_F  op_B:OP_0  target:OP_F     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+90 : 10101000101000001000010100;   --   BCC 90 op_A:OP_A  op_B:OP_V  target:OP_A     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+B0 : 10101010101000101000010100;   --   BCS B0 op_A:OP_S  op_B:OP_V  target:OP_S     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+D0 : 10101000001000000000010100;   --   BNE D0 op_A:OP_0  op_B:OP_V  target:OP_0     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+F0 : 10101000001000000000010100;   --   BEQ F0 op_A:OP_0  op_B:OP_V  target:OP_0     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- rell 10110
+62 : 10110000101000101100010100;   --   PER 62 op_A:OP_A  op_B:OP_V  target:OP_S     operator:OP_PUS  read:1  write:0  pC:1  cV:0  gC:0
+82 : 10110011100000111000010100;   --   BRL 82 op_A:OP_F  op_B:OP_0  target:OP_F     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- bm 10111
+44 : 10111011101000111000010100;   --   MVP 44 op_A:OP_F  op_B:OP_V  target:OP_F     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+54 : 10111000001000000000010100;   --   MVN 54 op_A:OP_0  op_B:OP_V  target:OP_0     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- iml 11000
+22 : 11000000101001011000011100;   --   JSL 22 op_A:OP_A  op_B:OP_V  target:OP_PC24  operator:OP_ADC  read:1  write:1  pC:1  cV:0  gC:0
+5C : 11000000001001011000010100;   --   JML 5C op_A:OP_0  op_B:OP_V  target:OP_PC24  operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- brk 11001
+00 : 11001100001001010000010100;   --   BRK 00 op_A:OP_K  op_B:OP_V  target:OP_PC16  operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+-- cop 11010
+02 : 11010011100000111000010100;   --   COP 02 op_A:OP_F  op_B:OP_0  target:OP_F     operator:OP_ADC  read:1  write:0  pC:1  cV:0  gC:0
+END

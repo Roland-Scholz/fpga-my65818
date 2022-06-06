@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Jun 06 01:25:40 2022
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : RS65816
+Top-level Entity Name : RS65816
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 4,462 / 6,272 ( 71 % )
+    Total combinational functions : 4,058 / 6,272 ( 65 % )
+    Dedicated logic registers : 1,878 / 6,272 ( 30 % )
+Total registers : 1943
+Total pins : 77 / 92 ( 84 % )
+Total virtual pins : 0
+Total memory bits : 163,584 / 276,480 ( 59 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 1 / 2 ( 50 % )

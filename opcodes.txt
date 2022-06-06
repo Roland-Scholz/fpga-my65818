@@ -1,0 +1,33 @@
+	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
+0x	BRK	ORA	COP	ORA	TSB	ORA	ASL	ORA	PHP	ORA	ASL	PHD	TSB	ORA	ASL	ORA
+	brk 7	idx 6	cop 7	sr 4	dp 5	dp 3	dp 5	idl 6	3	imm 2	2	4	abs 6	abs 4	abs 6	abl 5
+1x	BPL	ORA	ORA	ORA	TRB	ORA	ASL	ORA	CLC	ORA	INC	TCS	TRB	ORA	ASL	ORA
+	rel 2*	idy 5*	idp 5	isy 7	dp 5	dpx 4	dpx 6	idly 6	2	aby 4*	2	2	abs 6	abx 4*	abx 7	alx 4
+2x	JSR	AND	JSL	AND	BIT	AND	ROL	AND	PLP	AND	ROL	PLD	BIT	AND	ROL	AND
+	imm 6	idx 6	iml 8	sr 4	dp 3	dp 3	dp 5	idl 6	4	imm 2	2	5	abs 4	abs 4	abs 6	abl 5
+3x	BMI	AND	AND	AND	BIT	AND	ROL	AND	SEC	AND	DEC	TSC	BIT	AND	ROL	AND
+	rel 2*	idy 5*	idp 5	isy 7	dpx 4	dpx 4	dpx 6	idly 6	2	aby 4*	2	2	abx 4*	abx 4*	abx 7	alx 5
+4x	RTI	EOR	WDM	EOR	MVP	EOR	LSR	EOR	PHA	EOR	LSR	PHK	JMP	EOR	LSR	EOR
+	6	idx 6	imm 2	sr 4	bm 1#	dp 3	dp 5	idl 6	3	imm 2	2	3	imm 3	abs 4	abs 6	abl 5
+5x	BVC	EOR	EOR	EOR	MVN	EOR	LSR	EOR	CLI	EOR	PHY	TCD	JML	EOR	LSR	EOR
+	rel 2*	idy 5*	idp 5	isy 6	bm 1#	dpx 4	dpx 6	idly 6	2	aby 4*	3	2	iml 4	abx 4*	abx 7	alx 5
+6x	RTS	ADC	PER	ADC	STZ	ADC	ROR	ADC	PLA	ADC	ROR	RTL	JMP	ADC	ROR	ADC
+	6	idx 6	rell 6	sr 4	dp 3	dp 3	dp 5	idl 6	4	imm 2	2	6	ind 5	abs 4	abs 6	abl 5
+7x	BVS	ADC	ADC	ADC	STZ	ADC	ROR	ADC	SEI	ADC	PLY	TDC	JMP	ADC	ROR	ADC
+	rel 2*	idy 5*	idp 5	isy 7	dpx 4	dpx 4	dpx 6	idly 6	2	aby 4*	4	2	iax 6	abx 4*	abx 7	alx 5
+8x	BRA	STA	BRL	STA	STY	STA	STX	STA	DEY	BIT	TXA	PHB	STY	STA	STX	STA
+	rel 3*	idx 6	rell 4	sr 4	dp 3	dp 3	dp 3	idl 6	2	imm 2	2	3	abs 4	abs 4	abs 4	abl 5
+9x	BCC	STA	STA	STA	STY	STA	STX	STA	TYA	STA	TXS	TXY	STZ	STA	STZ	STA
+	rel 2*	idy 6	idp 5	isy 7	dpx 4	dpx 4	dpy 4	idly 6	2	aby 5	2	2	abs 4	abx 5	abx 5	alx 5
+Ax	LDY	LDA	LDX	LDA	LDY	LDA	LDX	LDA	TAY	LDA	TAX	PLB	LDY	LDA	LDX	LDA
+	imm 2	idx 6	imm 2	sr 4	dp 3	dp 3	dp 3	idl 6	2	imm 2	2	4	abs 4	abs 4	abs 4	abl 5
+Bx	BCS	LDA	LDA	LDA	LDY	LDA	LDX	LDA	CLV	LDA	TSX	TYX	LDY	LDA	LDX	LDA
+	rel 2*	idy 5*	idp 5	isy 7	dpx 4	dpx 4	dpy 4	idly 6	2	aby 4*	2	2	abx 4*	abx 4*	aby 4*	alx 5
+Cx	CPY	CMP	REP	CMP	CPY	CMP	DEC	CMP	INY	CMP	DEX	WAI	CPY	CMP	DEC	CMP
+	imm 2	idx 6	imm 3	sr 4	dp 3	dp 3	dp 5	idl 6	2	imm 2	2	wait 3	abs 4	abs 4	abs 6	abl 5
+Dx	BNE	CMP	CMP	CMP	PEI	CMP	DEC	CMP	CLD	CMP	PHX	STP	JML	CMP	DEC	CMP
+	rel 2*	idy 5*	idp 5	isy 7	dp 6	dpx 4	dpx 6	idly 6	2	aby 4*	3	stop 3	ial 6	abx 4*	abx 7	alx 5
+Ex	CPX	SBC	SEP	SBC	CPX	SBC	INC	SBC	INX	SBC	NOP	XBA	CPX	SBC	INC	SBC
+	imm 2	idx 6	imm 3	sr 4	dp 3	dp 3	dp 5	idl 6	2	imm 2	2	3	abs 4	abs 4	abs 6	abl 5
+Fx	BEQ	SBC	SBC	SBC	PEA	SBC	INC	SBC	SED	SBC	PLX	XCE	JSR	SBC	INC	SBC
+	rel 2*	idy 5*	idp 5	isy 7	imm 5	dpx 4	dpx 6	idly 6	2	aby 4*	4	2	iax 8	abx 4*	abx 7	alx 5

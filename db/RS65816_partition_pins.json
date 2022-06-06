@@ -1,0 +1,277 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "seg7[7]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_digit[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_digit[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_digit[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_digit[3]",
+					"strict" : false
+				},
+				{
+					"name" : "led1",
+					"strict" : false
+				},
+				{
+					"name" : "led2",
+					"strict" : false
+				},
+				{
+					"name" : "TXD0",
+					"strict" : false
+				},
+				{
+					"name" : "sync",
+					"strict" : false
+				},
+				{
+					"name" : "video[0]",
+					"strict" : false
+				},
+				{
+					"name" : "video[1]",
+					"strict" : false
+				},
+				{
+					"name" : "video[2]",
+					"strict" : false
+				},
+				{
+					"name" : "video[3]",
+					"strict" : false
+				},
+				{
+					"name" : "video[4]",
+					"strict" : false
+				},
+				{
+					"name" : "video[5]",
+					"strict" : false
+				},
+				{
+					"name" : "video[6]",
+					"strict" : false
+				},
+				{
+					"name" : "video[7]",
+					"strict" : false
+				},
+				{
+					"name" : "video[8]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[8]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[9]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[10]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_a[11]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_ba[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_ba[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_cke",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_ras_n",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_cas_n",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_we_n",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_mldq",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_mhdq",
+					"strict" : false
+				},
+				{
+					"name" : "SDsclk",
+					"strict" : false
+				},
+				{
+					"name" : "SDss[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SDmosi",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[8]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[9]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[10]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[11]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[12]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[13]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[14]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[15]",
+					"strict" : false
+				},
+				{
+					"name" : "SDmiso",
+					"strict" : false
+				},
+				{
+					"name" : "reset_in",
+					"strict" : false
+				},
+				{
+					"name" : "RXD0",
+					"strict" : false
+				},
+				{
+					"name" : "RXD1",
+					"strict" : false
+				},
+				{
+					"name" : "ps2Data",
+					"strict" : false
+				},
+				{
+					"name" : "ps2Clk",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

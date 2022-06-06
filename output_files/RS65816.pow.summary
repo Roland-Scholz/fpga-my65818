@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Tue Nov 09 09:54:41 2021
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : RS65816
+Top-level Entity Name : RS65816
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Power Models : Final
+Total Thermal Power Dissipation : 192.06 mW
+Core Dynamic Thermal Power Dissipation : 78.26 mW
+Core Static Thermal Power Dissipation : 48.99 mW
+I/O Thermal Power Dissipation : 64.81 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data
